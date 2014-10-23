@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta charset="UTF-8">
+<title>Angular Ex</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/bootstrap-theme.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script> 
+<!-- <script src="http//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script> -->
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/ui-bootstrap-tpls-0.11.0.min.js"></script>
+<script type="text/javascript" src="js/angular.js"></script>
+<script type="text/javascript" src="js/directives.js"></script>
+
+
+
+</head>
+<body>
+<h1>BASIC</h1>
+<div ng-controller="TodoCtrl">
+
+<h2>Question Nr 1</h2>
+<!--  -->
+<h5>1.	How will you display different images based on the status being red, amber, or green?</h5>
+<a  class="btn btn-success btn-xl btn-block" href="lightbox.html" target="_blank">Click here to view Signal Light</a>
+<h2>Question Nr 2</h2>
+<h5>2.	How will you show/hide buttons and enable/disable buttons conditionally?</h5>
+    <div class="page-header text-center">
+       <h1>ngShow and ngHide: Booleans</h1>
+    </div>
+   
+    <div class="row text-center">
+      <div class="col-xs-6">
+        <button ng-disabled="dis" ng-click="goMario = !goMario" 
+         class="btn btn-primary btn-lg">
+			<span ng-show="goMario">ng-Hide</span>
+             <span ng-hide="goMario">ng-Show</span>	
+
+			</button>
+      	  <button ng-click="dis=!dis"  class="btn btn-primary btn-lg">
+      	 	<span ng-show="dis">Enable</span>
+             <span ng-hide="dis">Disable</span>	
+      			</button>
+     
+    </div><br>
+      
+    <div class="col-xs-5"> 
+     <img style="float:left;" ng-src="http://fc02.deviantart.net/fs70/f/2012/062/8/0/pixel___luigi__animated__by_thelombax51-d4rmmh8.gif" class="img-responsive img-thumbnail" ng-show="goMario">
+      </div>
+   	   </div> 
+   	   <hr>  
+   	    
+<h2>Question Nr 3</h2>
+3.	How will you loop through a collection and list each item?
+<!-- ng-repeat -->
+    <div ng-repeat="item in items">
+     
+     {{ item.text }}<input style="float:left;" type="checkbox" ng-model="item.done">
+    </div>
+    <input type="text" ng-model="items_" placeholder="add more items">
+    <button class="btn btn-info btn-xs" ng-click="add()"  ng-disabled="isDisabled" ng-model="isDisabled">Add</button>
+    <button class="btn btn-primary btn-xl" ng-click="remove()">remove</button> 
+<hr>
+<h2>Question Nr 4</h2>
+4.	Create a simple directive that you can reuse across the application.
+ <legend>Click Here</legend>
+ <a class="btn btn-success btn-xl btn-block" href="reusable_directive.html" target="_blank">Reusable Directive</a>
+
+<hr>
+<br>
+
+<h2>Question Nr 5</h2>
+5.	Write a simple Angular JS app that would fadeIn and FadeOut an image (using angular and css3 - hint:use ng-class)
+<br>
+ <button class="btn btn-danger" ng-click="blur = !blur">Fade</button>
+    <div  >
+    <img ng-class="{ blur: blur }" ng-src="http://icons.iconarchive.com/icons/yellowicon/game-stars/256/Mario-icon.png" >
+</div>
+    <hr>
+<h1>INTERMEDIATE</h1>
+<h2>Question Nr 6</h2>
+6.	Create a custom directive that would take different for each directive (ISOLATES the scope of each directive).
+
+<h2>Question Nr 7</h2>
+7.	Write code to fetch Customer Info from JSON file and display in a tabular format.
+<p class="bg-primary">Json File Data Table</p>
+<!-- json table -->
+<table style="border:1px solid;"class="table table-hover table-striped">  
+        <thead>  
+          <tr>  <th>First Name</th>  <th>Last Name</th>  <th>Age</th>   </tr>  
+        </thead>  
+        <tbody>  
+          <tr style="color:black;"  class="info" ng-repeat="cust in custInfo">
+        <fieldset>
+       <legend>Create Person</legend>
+       <input type="text" ng-model="firstName" placeholder="Name" >
+       <input type="text" ng-model="lastName" placeholder="Name" >
+       <input type="number" ng-model="age" placeholder="Age" >
+       <button style="border:none;background:black;color:white;width:80px;float:left;" 
+       type="button" ng-disabled="edit($index)" ng-click="addPerson($index)"
+       type="button" class="btn btn-danger btn-xs">Add Person</button>
+        <button style="border:none;background:black;color:white;width:80px;float:right;" 
+ ng-click="loadData()" type="button" class="btn btn-primary btn-xs ">LOAD </button>
+    </fieldset>
+            <td><b>{{cust.firstName}}</b></td>  
+            <td><b>{{cust.lastName}}</b></td>  
+            <td><b>{{cust.age}}</b></td>  
+           
+            <td> <button style="border:none;background:black;color:white;" 
+            				ng-click="deleteStudent($index)" 
+            					type="button" class="btn btn-danger btn-xs">Delete
+            					 </button></td> <!-- end delete button -->
+           <td> <button style="border:none;background:black;color:white;" 
+            				ng-click="edit($index)" 
+            					type="button" class="btn btn-danger btn-xs">Edit
+            					  </button></td><!-- end edit button -->
+            									
+             </tr>  
+        </tbody>  
+      </table> 
+<hr>
+<h2>Question Nr 8</h2>
+8.	How will you display in-progress revolving image to indicate that RESTful data is bing loaded?
+<a  class="btn btn-success btn-xl btn-block" href="movies.html" target="_blank">Click here to view progress bar in Movie.html app</a>
+<!-- this ^^^^ button will send to another page -->
+<hr>
+<h2>Question Nr 9</h2>
+9.	Write DELETE ROW functionality for each record in the AJAX-driven Table. Also develop a UNDO feature.
+<h2>Question Nr 10</h2>
+10.	Write ADD ROW functionality for the above AJAX-driven TABLE.
+<h2>Question Nr.11</h2>
+11.	Write an app that would fetch data from a Cross domain URL [Rotten Tomatoes] and update the page with 10 different data points.
+<a  class="btn btn-success btn-xl btn-block" href="movies.html" target="_blank">Click here to view Movie app</a>
+<hr>
+
+<h2>Question Nr 12</h2> 
+  <h4>TODO APP</h4> 
+<a  class="btn btn-success btn-xl btn-block" href="todo2.html" target="_blank">Click here to view TODO app</a>
+</div>
+</body>
+</html>

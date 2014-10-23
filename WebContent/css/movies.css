@@ -1,0 +1,137 @@
+html{
+  margin: 50px;
+    /* background-image: url("../images/vibe.jpg");
+    background-size: 1600px 2500px;
+    background-repeat: no-repeat; */
+    max-width:100%;
+    background-position: -100px -200px;
+    overflow:fixed;
+	z-index:-1;
+}
+#h3{
+	color:#00FF00;
+	margin-top:10px;
+	text-shadow: 1px 1px #2E9AFE;
+}
+
+body {
+    /*  background-image: url("http://www.redpepperwallpaper.com/wp_highres/abstraction/WPKZ9RPC.jpg") no-repeat;
+     background-position: center center;
+    background-repeat: no-repeat; */
+    min-width: 820px;
+    background:#0D343A;
+    opacity:0.9;
+overflow:scroll;
+
+}
+    
+
+tr td{
+	list-style:none;
+}
+
+button{
+	height:70px;
+	width:200px;
+	float:left;
+}
+input{
+	box-shadow:5px 5px 50px 10px #2E9AFE;
+	width:500px;
+	height:70px;
+	opacity:0.6;
+}
+input.form-control{
+	font-family:Courier, Monaco, monospace;
+	color:black;
+	text-shadow: 1px 1px #2E9AFE;
+	font-size:45px;
+	box-shadow:5px 5px 50px 10px #2E9AFE;
+	height:70px;
+	width:500px;
+	-moz-box-shaddow:inset 0 0  10px #2E9AFE;
+	box-shadow:inset 0 0 10px #2E9AFE;
+           background:transparent;
+           float:left;
+           }
+
+input.form-control:focus{
+	font-family:Courier, Monaco, monospace;
+	color:black;
+	text-shadow: 1px 1px white;
+	font-size:45px;
+	box-shadow:5px 5px 50px 10px #2E9AFE;
+	height:70px;
+	width:500px;
+	-moz-box-shaddow:inset 0 0  10px #2E9AFE;
+	box-shadow:inset 0 0 10px #2E9AFE;
+           background:transparent;
+           float:left;
+           }
+	
+input.form-control:focus:hover{
+	font-family:Courier, Monaco, monospace;
+	color:green;
+	text-shadow: 1px 1px white;
+	font-size:45px;
+	box-shadow:5px 5px 50px 10px white;
+	height:70px;
+	width:500px;
+	-moz-box-shaddow:inset 10px 10px 100px  10px white;
+	box-shadow:inset 10px 10px 100px  10px white;
+           background:transparent;
+           float:left;
+           }	
+	
+
+   
+ input::-webkit-input-placeholder {
+	color: #40FF00;
+	text-transform: uppercase;
+	
+}
+input::-moz-placeholder {
+	color: #40FF00;
+	text-transform: uppercase;
+	font-size:40px;
+	
+}
+ 
+.ng-pristine:active{
+	background:transparent
+}
+
+option{
+	font-weight:bold;
+	font-size:24px;
+	color:white;
+	background:black;
+	
+	 border: #FEFEFE 1px solid;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+-webkit-box-shadow: inset 0px 0px 10px 1px #FEFEFE;
+box-shadow: inset 0px 0px 10px 1px #FEFEFE;
+	border-radius:10%;
+}        
+p{
+	width:300px;
+}  
+
+@media screen and (max-width: 960px) {
+	html{
+	 margin: 50px;
+    background-image: url("../images/vibe.jpg");
+    background-size: 960px 1700px;
+    background-repeat: no-repeat;
+    max-width:100%;
+    background-position: -100px -200px;
+    overflow:fixed;
+	z-index:-1;
+	}
+       
+     table tr td,th:last-child{
+       display:none;}
+
+
+}    

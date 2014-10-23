@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta charset="UTF-8">
+<title>Lightbox</title>
+<link rel="stylesheet" href="css/style2.css">
+<link rel="stylesheet" href="css/bootstrap-theme.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script> 
+<script src="http//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"></script>
+<script src="http://malsup.github.com/jquery.form.js""></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/ui-bootstrap-tpls-0.11.0.min.js"></script> 
+<script type="text/javascript" src="js/lightbox.js"></script>
+
+<script>angular.module("myApp",[]);</script>
+
+
+
+
+
+<style>
+.statusIcon{
+		width:400px;
+		height:600px;
+		border:12px solid green;
+		}
+
+</style>
+
+</head>
+ <body>
+   <h2>Question Nr 1</h2>
+<h4>How will you display different images based on the status being red, amber, or green?</h4> 
+ 
+<a href="lightbox.html"  class="btn btn-danger">Red</a>
+ <button ng-dblclick="amber={display:'none'}" ng-click="amber={display:''}"  class="btn btn-warning active" >Click Amber</button>
+<button ng-dblclick="green={display:'none'}" ng-click="green={display:''}" class="btn btn-success">Click Green</button>
+      
+      <div style="position:relative;">
+      <img ng-style="red"    style="position:absolute;top:0px;left:0px;" src="images/red.png">
+      <img ng-style="amber"  style="display:none;position:absolute;top:0px;left:0px;" src="images/amber.png">
+      <img ng-style="green"  style="display:none;position:absolute;top:0px;left:0px;" src="images/green.png">
+         
+      </div>   
+<div ng-switch on="account.status">
+ <div ng-switch-when="amber">
+  <img class="statusIcon"
+   src="images/red.png" />
+ </div>
+ <div ng-switch-when="green">
+  <img class="statusIcon"
+   src="images/amber.png" />
+ </div>
+ <div ng-switch-when="red">
+  <img class="statusIcon"
+   src="images/green.png" />
+ </div>
+ <button style="float:right;" ng-click="red">Click</button>
+</div>
+
+  </body>
+</html>

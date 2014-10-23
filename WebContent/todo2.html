@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html ng-app="todo">
+<head>
+<meta charset="UTF-8">
+<title>Todo</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script> 
+<script src="js/todos.js"></script>
+<style>
+.done {text-decoration: line-through;color: #ccc;}
+html{margin:50px;}
+
+button:disabled{
+	background-color:transparent !important;
+	color:black;
+}
+span{margin-left:50px;}
+input:-moz-submit-invalid {
+  box-shadow:4px 5px 5px black;
+}
+
+input:-moz-ui-invalid {
+  box-shadow:1px 1px 5px red;
+}
+</style>
+</head>
+<body>
+<!-- Controller -->
+<div ng-controller="todoCtrl">
+<!-- submit function -->	
+	<form name="frm" ng-submit="addTodo()">
+		<input size=30 placeholder="What needs to be done?" type="text" name="newTodo" ng-model="newTodo" required/>
+			<button class="btn btn-info btn-xs" ng-disabled="frm.$invalid">Go</button>
+	
+	</form>
+<!-- Clear function, ng-repeat="todo in todos" -->	
+<button style="width:250px;" class="btn btn-info btn-xs" ng-click="clearCompleted()">Clear Completed</button>
+	<table  class="table table-hover" style="width:250px;">
+		<th style="padding:10px;background:black;color:white;" class="success">Todos</th>
+	<tr class="info" ng-repeat="todo in todos">
+		<td> <span ng-class="{'done' :todo.done}">{{todo.text}}
+				</span>
+			<input style="float:left;" type="checkbox" ng-model="todo.done">
+				</td>
+					</tr>
+						</table>
+
+
+
+</div>
+
+ <script>
+ angular.module('todo',[]).
+
+ controller('todoCtrl',['$scope',function($scope){
+
+ 	$scope.todos = [{'text':'Angular', 'done':false},
+ 	                {'text':'Build An App', 'done':false},
+ 	                {'text':'Run Errands', 'done':false}];
+ 	
+ 	$scope.addTodo = function(){
+ 		 $scope.todos.push({'text':$scope.newTodo,'done':false});
+ 		    $scope.newTodo = '';
+ 	};
+ 	$scope.clearCompleted = function(){
+ 		$scope.todos = $scope.todos.filter(function(item){
+ 			return !item.done
+ 		})
+ 	}
+ 	 
+ 	
+ 	
+ }]);
+ 
+ 
+ </script>
+
+
+
+
+</body>
+</html>

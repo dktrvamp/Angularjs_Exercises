@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en"  ng-app="APP">
+<head>
+	<meta charset="UTF-8">
+	<title>Reusable Directive</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js"></script>
+	<script src="js/reusable_directive.js"></script>
+	<link rel="stylesheet" href="css/bootstrap-theme.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<style>
+	html{margin:50px;}
+	h1{text-shadow:1px 1px 5px black;}
+	table tr{box-shadow:1px 1px 5px black;}
+	.newspaper {
+    -webkit-column-count: 3; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+    font-size:250%;
+    height:900px;
+    width:1000px;
+    
+}
+	</style>
+</head>
+<body>
+	<table class="table table-hover table-striped">
+	<thead><tr class="success"><th><h1>Custom Directives</h1></th></tr></thead>
+	<tbody>
+	<tr class="info">
+		<td>
+	<h1 namer="" data-first="Joe" data-last="Shmo" data-phone="818-555-0000"></h1>
+		</td>
+		</tr>
+		<tr class="active">
+		<td>
+	<h1 namer="" data-first="Anoop" data-last="Singh" data-phone="818-555-0001"></h1>
+		</td>
+		</tr>
+		<tr class="info">
+		<td>
+	<h1 namer="" data-first="Jim" data-last="Jones" data-phone="818-555-0002"></h1>
+		</td>
+		</tr>
+		<tr class="active">
+		<td>
+	<h1 namer="" data-first="John" data-last="Doe" data-phone="818-555-0003"></h1>
+		</td>
+	</tr>
+	</tbody>
+	</table><br><hr>
+
+<div class="newspaper">
+ <div style="width:450px;height:200px;background:grey;color:white;"> <h1 namer="" data-first="Joe" data-last="Shmo" data-phone="818-555-0000"></h1></div>
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+ ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
+  tation ullamcorper suscipit
+  <h1 namer="" data-first="Anoop" data-last="Singh" data-phone="818-555-0001"></h1>
+   lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel
+   eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu
+    feugiat nulla facilisis at vero
+    <h1 namer="" data-first="John" data-last="Doe" data-phone="818-555-0003"></h1>
+     eros et accumsan et iusto odio dignissim qui blandit praesent
+     luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+   Nam liber tempor cum soluta nobis eleifend option 
+     congue nihil imperdiet doming id quod mazim placerat facer 
+     possim assum. 
+      <h1 namer="" data-first="Jim" data-last="Jones" data-phone="818-555-0002"></h1>
+     Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum 
+     claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.
+      
+</div>
+	
+	
+	
+	
+	<script>
+			var APP = angular.module('APP',['namer']);
+	</script>
+	
+</body>
+</html>

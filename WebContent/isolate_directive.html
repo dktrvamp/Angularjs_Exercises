@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="utf-8">
+  <title>Egghead Videos</title>
+ <link rel="stylesheet" href="css/bootstrap-theme.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js"></script>
+</head>
+<body>
+
+  <div ng-app="choreApp">
+    <div ng-controller="ChoreCtrl">
+    <h4>This is a "directive" Element with an "Isolated Scope"</h4>
+        <kid done="logChore(chore)"></kid>
+        		
+         <kid done="logChore(chore)"></kid>
+          <kid done="logChore(chore)"></kid>
+         
+    </div>
+  </div>
+<script>
+var app = angular.module("choreApp", []);
+		
+app.controller("ChoreCtrl", function($scope) {
+	$scope.chore=[];
+    $scope.logChore = function(chore) {
+         alert(chore + " is done!"); 
+    }
+})
+
+app.directive("kid", function() {
+    return {
+        restrict: "E",
+        scope: {
+            done: "&"
+        },
+        template: '<input type="text" ng-model="chore">' +
+          ' {{chore}}' +
+          ' <div class="btn btn-info" ng-click="done({chore:chore})">I\'m done!</div><br><hr>'
+    }
+
+})
+
+</script>
+
+  <!-- <script type="text/javascript" src="app/js/main.js"></script> -->
+</body>
+</html>

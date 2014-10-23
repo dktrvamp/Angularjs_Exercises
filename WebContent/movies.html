@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Movie_app</title>
+<link rel="stylesheet" href="css/movies.css">
+<link rel="stylesheet" href="css/bootstrap-theme.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+
+
+</head>
+<body>
+
+
+<!-- Angular Starts here -->
+<div ng-app="movies">
+    <div ng-controller="movieController">
+    
+  
+    
+  <!-- Fetching JsonP data Form --> 
+    <form ng-submit="fetchResults()">
+      <!-- Search A movie button -->
+    <input  class="form-control" placeholder="Search for a movie" type="search" ng-model="search" >
+    <!-- submit button -->
+    <button type="submit" value="go" class="btn btn-primary" ><h3 id="h3">Search a Movie</h3></button>
+ 
+  </form>
+       <!-- Angular' Repeat' Options in Select -->
+     <select ng-model="sortPrimary" ng-options="key for key in sortPrimaryOptions" 
+     			ng-select="sortPrimary = 'year; reverse=true'"></select>
+    
+  <br>
+  
+  
+  
+  
+  <!-- bootstrap table -->
+  <table  class="table table-hover">
+       <!-- Headers -->
+   <th style="padding:20px;" class="success">
+   							Poster</th>
+   		<th style="padding:20px;" class="info">
+  		<a href="" ng-click="sortPrimary = 'title';" ng-dblclick="sortPrimary = '-title';">Title</a>
+   		</th>
+   <th style="padding:20px;" class="success" >
+   		<a href="" ng-click="sortPrimary = 'year'; reverse=true" 
+   					ng-dblclick="sortPrimary = '-year'; reverse=true">
+   							Year</a>
+  	    </th>
+   <th style="padding:20px;" class=info>
+		<a href="" ng-click="sortPrimary = 'mpaa_rating'; reverse=false" ng-dblclick="sortPrimary = '-mpaa_rating'; reverse=false">Rating</a>
+   		</th>
+   <th style="padding:20px;" class="success">
+   		<a href="" ng-click="sortPrimary = 'runtime'; reverse=true" 
+   						ng-dblclick="sortPrimary = '-runtime'; reverse=true">
+   							Runtime</a>
+  		</th>
+   <th style="padding:20px;" class="info">Plot</th>
+   <th style="padding:20px;" class="success">Character</th>
+   <th style="padding:20px;" class="info">
+        <a href="" ng-click="sortPrimary = 'ratings.audience_score'; reverse=false" 
+        			ng-dblclick="sortPrimary = '-ratings.audience_score'; reverse=false">
+        					Audience Score</a>
+        </th>
+        
+   <th style="padding:20px;" class="success">Release Date</th>
+         
+ <tr  class="active"  ng-repeat="movie in result | orderBy:sortPrimary"  >
+ 
+   <td class="success">
+   					<img  class="poster" 
+   						src={{movie.posters.original}} alt={{movies.title}} 
+   							class="img-responsive">
+   		</td>
+        
+  <td class="info"><h4>{{movie.title}}</h4></td>
+  	<td class="success" style="width:330px;">
+  						{{movie.year}}</td>
+       <td class="info">{{movie.mpaa_rating}}</td>
+      	  <td class="success">
+      	 			 <b>{{movie.runtime}}</b></td>
+       	    <td id='plot' class="info">
+        			<p>{{movie.synopsis}}</p></td>
+  <td class="success"><h6 style="text-decoration:underline;"> 
+  						{{movie.abridged_cast[0].name}} 
+  						Character: {{movie.abridged_cast[0].characters}} 
+  					 <a>{{movie.links[0].cast}}</a></h6>
+                <br><h6 style="text-decoration:underline;"> 
+                		{{movie.abridged_cast[1].name}} 
+                		Character: {{movie.abridged_cast[1].characters}}</h6>
+                <br><h6 style="text-decoration:underline;"> 
+                		{{movie.abridged_cast[2].name}} 
+                		Character: {{movie.abridged_cast[2].characters}}</h6>
+                <br><h6 style="text-decoration:underline;"> 
+                		{{movie.abridged_cast[3].name}} 
+                		Character: {{movie.abridged_cast[3].characters}}</h6>
+                <br><h6 style="text-decoration:underline;"> 
+                		{{movie.abridged_cast[4].name}} 
+                		Character: {{movie.abridged_cast[4].characters}}</h6>
+                  					 
+  </td>
+                 <td class="info">{{movie.ratings.audience_score}}</td>
+                 <td class="success"><h5>
+                 		Dvd Release:</h5>{{movie.release_dates.dvd}},
+                 	<h5>Theatre Release:</h5><h5>
+                 		{{movie.release_dates.theatre}}</h5></td>
+ </tr>
+  </table>
+	   </div>
+ 			</div>
+ 
+
+
+
+
+<script>
+document.write(Date());
+</script>
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular-resource.js"></script>  -->
+<!-- <script src="http//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script> -->
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/ui-bootstrap-tpls-0.11.0.min.js"></script>
+<script type="text/javascript" src="js/movies.js"></script>
+<!-- <script type="text/javascript" src="js/loading-bar.js"></script> -->
+<script type="text/javascript" src="js/loading-bar.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+    "links": {
+        "lists": "http://api.rottentomatoes.com/api/public/v1.0/lists.json",
+        "movies": "http://api.rottentomatoes.com/api/public/v1.0/movies.json"
+    }
+}

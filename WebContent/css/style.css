@@ -1,0 +1,50 @@
+html{
+	margin:60px;
+}
+.done-true{
+    text-decoration: line-through;
+    color: grey;
+    
+}
+
+li{
+	width:150px;
+	height:50px;
+	background:#E0F8F7;
+	margin-left:-20px;
+	border:1px solid;
+	list-style:none;
+	color:black;
+}
+.btn{
+	width:150px;
+	margin-left:20px;
+	margin-right:20px;
+}
+
+
+
+  .collapsable {
+    display: block;
+    overflow: hidden;
+    height: 0;
+    transition: height 1s;
+    -webkit-transition: height 1s;        
+    -moz-transition: height 1s;        
+    -o-transition: height 1s;         
+  }
+  .collapsable.showMe {
+    height: 400px;
+    width:100px;
+  }
+   img {
+        -webkit-transition: 1s;
+        transition: 1s;
+        opacity: 1;
+      }
+    
+      img.blur {
+        -webkit-transition: 1s;
+        transition: 1s;
+        opacity: 0.1;
+      }
